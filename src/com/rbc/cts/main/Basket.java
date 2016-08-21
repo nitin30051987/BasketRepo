@@ -4,8 +4,9 @@ public class Basket {
     public static void main(String[] args) {
 	double sum = 0;
 	String itemNames[]= {"Bananas","Oranges","Apples","Lemons","Peaches","Bananas"};
+	
 	for (int i = 0; i < itemNames.length; i++) {
-	       
+		if(null!=itemNames[i]){       
         switch (itemNames[i]) {
         case "Bananas":
             sum += 2.98; 
@@ -22,6 +23,8 @@ public class Basket {
             break;
     }
      }	
+	
+	}
 	System.out.printf("Total cost is %.2f",sum);
 }
 }
