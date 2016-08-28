@@ -1,30 +1,47 @@
 package com.rbc.cts.main;
 
-public class Basket {
-    public static void main(String[] args) {
+public class Basket implements BasketImpl {
 	double sum = 0;
-	String itemNames[]= {"Bananas","Oranges","Apples","Lemons","Peaches","Bananas"};
 	
-	for (int i = 0; i < itemNames.length; i++) {
-		if(null!=itemNames[i]){       
-        switch (itemNames[i]) {
-        case "Bananas":
-            sum += 2.98; 
-            break;
-        case "Oranges":
-            sum += 4.50;
-            break;
-        case "Apples":
-            sum += 9.98;
-           break;
-       
-        default:
-            sum += 0;
-            break;
-    }
-     }	
-	
+	@Override
+	public double calculateTotalPrice(String[] itemNames){
+				
+		for (int i = 0; i < itemNames.length; i++) {
+			if(null!=itemNames[i]){       
+	        switch (itemNames[i]) {
+	        case "Bananas":
+	            sum += FruitsPrice.Bananas; 
+	            break;
+	        case "Oranges":
+	            sum += FruitsPrice.Oranges;
+	            break;
+	        case "Apples":
+	            sum += FruitsPrice.Apples;
+	           break;
+	        case "Lemons":
+	            sum += FruitsPrice.Lemons;
+	           break;
+	        case "Peaches":
+	            sum += FruitsPrice.Peaches;
+	           break;
+	        default:
+	            sum += 0;
+	            break;
+	            
+	    }
+	     }	
+		
+		}
+		
+		return sum;
 	}
-	System.out.printf("Total cost is %.2f",sum);
+	
+    public static void main(String[] args) {
+	
+	String itemNames[]= {"Bananas","Oranges","Apples","Lemons","Peaches","Bananas"};
+    	Basket basket = new Basket();
+    	double totalPrice = basket.calculateTotalPrice(itemNames);
+    	System.out.println(totalPrice);
+
 }
 }
